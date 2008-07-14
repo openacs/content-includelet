@@ -3,21 +3,14 @@ ad_page_contract {
     The display logic for the content includelet
     
     Note: the optional revision_id queryvar is used by the admin "view revision" script
-    to override the live version.
+    to override the live version.  When included from the layout manager, the queryvar
+    is not set, of course.
 
     @author Don Baccus (dhogaza@pacifier.com)
     @cvs_id $Id$
 } {
     revision_id:optional
 }
-
-#array set config $cf    
-#if { [info exists config(param_name)] } {
-#    set item_id $config($param_name)
-#} else {
-#    set item_id $config(content_id)
-#}
-#set element_id $config(element_id)
 
 if { [info exists param_name] } {
     set item_id [set $param_name]
