@@ -16,6 +16,7 @@ ad_proc -private content_includelet::install::package_install {} {
 } {
 
     db_transaction {
+
         # Need our own content type for search callbacks
         content::type::new \
             -content_type content_includelet_revision \
@@ -30,9 +31,9 @@ ad_proc -private content_includelet::install::package_install {} {
             -description "Displays the content includelet" \
             -title "Content Includelet" \
             -application content-includelet \
-            -owner content-includelet \
-            -template content-includelet \
-            -constructor content_includelet_utilities::configure_content_id
+            -template /packages/content-includelet/lib/content-includelet \
+            -initializer content_includelet_utilities::configure_content_id
+
     }
 }
 

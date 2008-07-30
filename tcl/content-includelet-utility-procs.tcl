@@ -21,9 +21,9 @@ ad_proc content_includelet_utilities::configure_content_id {
 } {
     # Create the content item and stuff its id into the includelet.
 
-    set package_id [lindex [layout::element::parameter::get \
-                               -element_id $element_id \
-                               -key package_id] 0] 
+    set package_id [layout::element::get_column_value \
+                       -element_id $element_id \
+                       -column package_id]
  
     set content_id [content::item::new \
                        -name "Content For $package_id's $parameter" \
@@ -32,7 +32,7 @@ ad_proc content_includelet_utilities::configure_content_id {
                        -content_type content_includelet_revision \
                        -storage_type text]
 
-    layout::element::parameter::new \
+    layout::element::parameter::add_values \
         -element_id $element_id \
         -parameters [list $parameter $content_id]
 }
