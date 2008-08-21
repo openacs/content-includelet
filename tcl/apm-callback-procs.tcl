@@ -32,7 +32,7 @@ ad_proc -private content_includelet::install::package_install {} {
             -title "Content Includelet" \
             -application content-includelet \
             -template /packages/content-includelet/lib/content-includelet \
-            -initializer content_includelet_utilities::configure_content_id
+            -initializer content_includelet_utilities::configure_content_id 
 
     }
 }
