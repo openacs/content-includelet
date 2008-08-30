@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="content-includelet" locale="en_US" charset="ISO-8859-1">
+
+  <msg key="Actions">Actions</msg>
+  <msg key="Author">Author</msg>
+  <msg key="Content">Content</msg>
+  <msg key="Create_new_revision">Create a new revision from the live revision:</msg>
+  <msg key="Delete">Delete</msg>
+  <msg key="Description">Description</msg>
+  <msg key="Edit">Edit</msg>
+  <msg key="Edit_intro">You can update the title and content of this page below.  Clicking on "OK" will make a new revision which will appear first in the list of revisions for this content portlet.  Afterwards, you can review the changes made by clicking on "View".  Clicking on "Publish" will then make the currently viewed version of the content "live".</msg>
+  <msg key="ID">ID</msg>
+  <msg key="Live_Version">Live Version</msg>
+  <msg key="no_live_version">There is no live version - create a new revision:</msg>
+  <msg key="Properties">Properties</msg>
+  <msg key="Publish">Publish</msg>
+  <msg key="Published">Published</msg>
+  <msg key="Title">Title</msg>
+  <msg key="Unpublish">Unpublish</msg>
+  <msg key="View">View</msg>
+
+</message_catalog>

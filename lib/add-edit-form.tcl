@@ -14,7 +14,7 @@ set package_id [ad_conn package_id]
 
 ad_form -name add-edit-form -export {element_id item_id revision_id} -form {
     {content:richtext \
-        {label Content}
+        {label #content-includelet.Content#}
         {html {rows 20 cols 60 wrap soft}}
     }
 } -on_request {

@@ -32,8 +32,9 @@ ad_proc -private content_includelet::install::package_install {} {
             -title "Content Includelet" \
             -application content-includelet \
             -template /packages/content-includelet/lib/content-includelet \
-            -initializer content_includelet_utilities::configure_content_id 
-
+            -initializer content_includelet_utilities::configure_content_id \
+            -uninitializer content_includelet_utilities::delete_content_id \
+            -singleton_p f
     }
 }
 
@@ -55,5 +56,8 @@ ad_proc -private content_includelet::install::after_upgrade {
 	-from_version_name $from_version_name \
 	-to_version_name $to_version_name \
 	-spec {
+            1.1.1 1.1.2 {
+                db_dml add_uninitializer_singleton_p {}
+            }
         }
 }

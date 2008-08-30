@@ -23,17 +23,12 @@ ad_proc content_includelet_utilities::configure_content_id {
                        -element_id $element_id \
                        -column package_id]
 
-    if { ![db_0or1row item_exists {} ] } {
-        # Create the content item and stuff its id into the includelet.
- 
-        set item_id [content::item::new \
-                        -name "Content For $package_id's $parameter" \
-                        -parent_id $package_id \
-                        -context_id $package_id \
-                        -content_type content_includelet_revision \
-                        -storage_type text]
-
-    }
+    set item_id [content::item::new \
+                    -name "Content For $element_id's $parameter" \
+                    -parent_id $package_id \
+                    -context_id $package_id \
+                    -content_type content_includelet_revision \
+                    -storage_type text]
 
     layout::element::parameter::add_values \
         -element_id $element_id \
@@ -65,4 +60,18 @@ ad_proc content_includelet_utilities::mount_and_configure_content_id {
 
     content_includelet_utilities::configure_content_id $element_id $parameter_id
     return $package_id
+}
+
+ad_proc content_includelet_utilities::delete_content_id {
+    element_id
+    {parameter content_id}
+} {
+    Create the includelet's item and set the content_id param.
+
+    @param element_id The content includelet
+    @param parameter The parameter name to assign to the content item
+
+} {
+    content::item::delete \
+        -item_id [layout::element::parameter::get -element_id $element_id -key $parameter]
 }
