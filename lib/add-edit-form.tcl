@@ -19,10 +19,7 @@ ad_form -name add-edit-form -export {element_id item_id revision_id} -form {
     }
 } -on_request {
     if { $revision_id ne "" } {
-        db_1row q {
-            select content as old_content, mime_type
-            from cr_revisions where revision_id = :revision_id
-        }
+        db_1row content {}
         ad_set_element_value \
             -element content \
             [template::util::richtext::create $old_content $mime_type]
