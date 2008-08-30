@@ -7,7 +7,7 @@ ad_library {
 
 }
 
-ad_proc -public -callback search::datasource -impl content_portlet_revision {} {
+ad_proc -public -callback search::datasource -impl content_includelet_revision {} {
 
     @author dhogaza@pacifier.com
     @creation_date 2007-11-15
@@ -17,11 +17,7 @@ ad_proc -public -callback search::datasource -impl content_portlet_revision {} {
     search engine.
 
 } {
-    db_1row q {
-        select publish_date, data
-        from cr_revisionsi
-        where revision_id = :object_id
-    }
+    db_1row datasource { }
     return [list object_id $object_id \
                 title "" \
                 content $data \
@@ -30,7 +26,7 @@ ad_proc -public -callback search::datasource -impl content_portlet_revision {} {
                 mime text/html]
 }
 
-ad_proc -public -callback search::url -impl content_portlet_revision {} {
+ad_proc -public -callback search::url -impl content_includelet_revision {} {
 
 
     @author dhogaza@pacifier.com
@@ -39,25 +35,11 @@ ad_proc -public -callback search::url -impl content_portlet_revision {} {
     returns a url for a content portlet
 
 } {
-    db_1row q {
-        select s.node_id
-        from site_nodes s, site_nodes s1, cr_revisions r, cr_items i
-        where r.revision_id = :object_id
-          and i.item_id = r.item_id
-          and s1.object_id = i.parent_id
-          and s.node_id = s1.parent_id
-    }
-    db_1row q {
-        select p.element_id
-        from portal_element_parameters p, cr_revisions r
-        where r.revision_id = :object_id
-          and p.key = 'content_id'
-          and p.value = r.item_id
-    }
-    set page_id [portal::element::get_page_id -element_id $element_id]
-    array set page [portal::page::get -page_id $page_id]
+    db_1row node_id {}
+    db_1row element_id {}
+    set page_id [layout::element::get_page_id -element_id $element_id]
+    array set page [layout::page::get -page_id $page_id]
     set base [site_node::get_element -node_id $node_id -element url]
-    # Total kludge for The Learning Center
-    return [export_vars -base $base  {{portal_id $page(portal_id)} {page_num $page(sort_key)}}]
+    return [export_vars -base $base {{pageset_id $page(pageset_id)} {page_num $page(sort_key)}}]
 }
 

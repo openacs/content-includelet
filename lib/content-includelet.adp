@@ -4,7 +4,7 @@
 
 <if @edit_p@ true>
    <p>
-     <a href="@edit_url@">Edit Content</a>
+     <a href="@edit_url@">#content-includelet.Edit_Content#</a>
    </p>
 
 </if>
