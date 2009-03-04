@@ -2,6 +2,7 @@
 <message_catalog package_key="content-includelet" locale="en_US" charset="ISO-8859-1">
 
   <msg key="Actions">Actions</msg>
+  <msg key="Action">Action</msg>
   <msg key="Author">Author</msg>
   <msg key="Content">Content</msg>
   <msg key="Create_new_revision">Create a new revision from the live revision:</msg>

@@ -40,7 +40,7 @@ template::list::create \
             label {[_ content-includelet.Published]}
         }
         actions {
-            label {[_ layout-subsite-integration.Action]}
+            label {[_ content-includelet.Action]}
             display_template {
                 <a href="view?element_id=@revisions.element_idx@&item_id=@revisions.item_idx@&revision_id=@revisions.revision_id@" title="#content-includelet.View#" class="button">#content-includelet.View#</a>
                 <a href="edit?element_id=@revisions.element_idx@&item_id=@revisions.item_idx@&revision_id=@revisions.revision_id@" title="#content-includelet.Edit#" class="button">#content-includelet.Edit#</a>

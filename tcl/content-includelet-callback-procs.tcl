@@ -37,7 +37,7 @@ ad_proc -public -callback search::url -impl content_includelet_revision {} {
 } {
     db_1row node_id {}
     db_1row element_id {}
-    set page_id [layout::element::get_page_id -element_id $element_id]
+    set page_id [layout::element::get_column_value -element_id $element_id -column page_id]
     array set page [layout::page::get -page_id $page_id]
     set base [site_node::get_element -node_id $node_id -element url]
     return [export_vars -base $base {{pageset_id $page(pageset_id)} {page_num $page(sort_key)}}]
