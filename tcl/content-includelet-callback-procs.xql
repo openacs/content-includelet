@@ -27,7 +27,7 @@
       from layout_element_parameters p, cr_revisions r
       where r.revision_id = :object_id
         and p.key like '%_id'
-        and p.value = r.item_id
+        and p.value::integer = r.item_id
     </querytext>
   </fullquery>
 
