@@ -18,7 +18,10 @@ if { [info exists param_name] } {
     set item_id $content_id
 }
 
-set edit_p [permission::permission_p -object_id $item_id -privilege write]
+# Note: we really need a way to set the priv to check for, and to change
+# perms on the content item...
+set edit_p [permission::permission_p -object_id $item_id -privilege admin]
+
 if { $edit_p} {
     set package_url [site_node::get_url_from_object_id -object_id $package_id]
     set edit_url ${package_url}/admin?[export_vars -url {element_id item_id}]
