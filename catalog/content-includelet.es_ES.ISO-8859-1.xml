@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="content-includelet" locale="es_ES" charset="ISO-8859-1">
+
+  <msg key="Action">Acción</msg>
+  <msg key="Actions">Acciones</msg>
+  <msg key="Author">Autor</msg>
+  <msg key="Content">Contenido</msg>
+  <msg key="Create_new_revision">Crear una nueva revisión a partir de la versión actual:</msg>
+  <msg key="Delete">Borrar</msg>
+  <msg key="Description">Descripción</msg>
+  <msg key="Edit">Editar</msg>
+  <msg key="Edit_Content">Editar Contenido</msg>
+  <msg key="Edit_intro">El título y el contenido pueden ser modificados a continuación. Al pulsar &quot;OK&quot; se creará una nueva revisión que primero aparecerá en la lista de revisiones para este contenido. A continuación, los cambios realizados pueden ser revisados pulsando sobre &quot;Ver&quot;. Al pulsar &quot;Publicar&quot; la nueva revisión pasará a ser la versión actual publicada.</msg>
+  <msg key="ID">ID</msg>
+  <msg key="Live_Version">Versión actual</msg>
+  <msg key="no_live_version">No hay versión disponible. Crear una nueva revisión:</msg>
+  <msg key="Properties">Propiedades</msg>
+  <msg key="Publish">Publicar</msg>
+  <msg key="Published">Publicado</msg>
+  <msg key="Title">Título</msg>
+  <msg key="Unpublish">Retirar</msg>
+  <msg key="View">Ver</msg>
+</message_catalog>
