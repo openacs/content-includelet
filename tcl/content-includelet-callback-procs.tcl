@@ -17,9 +17,13 @@ ad_proc -public -callback search::datasource -impl content_includelet_revision {
     search engine.
 
 } {
+    set element_id [content_includelet_utilities::get_element_id -object_id $object_id]
+    set page_id [layout::element::get_column_value -element_id $element_id -column page_id]
+    set title [layout::page::get_column_value -page_id $page_id -column name]
+
     db_1row datasource { }
     return [list object_id $object_id \
-                title "" \
+                title $title \
                 content $data \
                 relevant_date $publish_date \
                 storage_type text \
@@ -36,7 +40,7 @@ ad_proc -public -callback search::url -impl content_includelet_revision {} {
 
 } {
     db_1row node_id {}
-    db_1row element_id {}
+    set element_id [content_includelet_utilities::get_element_id -object_id $object_id]
     set page_id [layout::element::get_column_value -element_id $element_id -column page_id]
     array set page [layout::page::get -page_id $page_id]
     set base [site_node::get_element -node_id $node_id -element url]

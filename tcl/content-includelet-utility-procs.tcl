@@ -9,6 +9,12 @@ ad_library {
 
 namespace eval content_includelet_utilities {}
 
+ad_proc content_includelet_utilities::get_element_id {
+    -object_id:required
+} {
+    return [db_string element_id {}]
+}
+
 ad_proc content_includelet_utilities::configure_content_id {
     element_id
     {parameter content_id}
